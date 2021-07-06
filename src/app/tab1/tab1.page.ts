@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../models/person';
+import { Customer } from '../models/customer';
 import { ApiService } from '../services/api.service';
 import { IndexDBService } from '../services/index-db.service';
 
@@ -10,7 +11,7 @@ import { IndexDBService } from '../services/index-db.service';
 })
 export class Tab1Page implements OnInit {
 
-  people: Person[] = [];
+  people: Customer[] = [];
   person: Person = new Person();
   
   constructor(private apiService: ApiService, private indexDBService: IndexDBService) {}
@@ -22,19 +23,28 @@ export class Tab1Page implements OnInit {
   refreshPeople() {
     this.apiService.getPeople()
     .subscribe((data) => {
-      this.people = data;
+      this.people = data.result;
+      localStorage.setItem('data',JSON.stringify(data.result));
+    },(err) =>{
+      let data = JSON.parse(localStorage.getItem('data'));      
+      this.people = data;      
     });
   }
 
   addPeople(){
-    this.people.push(this.person)
+    let customer = new Customer();
+    customer.name = this.person.name;
+    this.people.push(customer);    
     this.apiService.addPerson(this.person)
-    .subscribe((data) => {
+    .subscribe((data) => {     
       this.person = new Person();
       this.refreshPeople();
-    }, (err) => {
+    }, (err) => {     
       this.indexDBService.addUser(this.person.name)
-      .then(this.backgroundSync)
+      .then(() =>{      
+        localStorage.setItem('data',JSON.stringify(this.people));
+        this.backgroundSync();
+      })
       .catch(console.log);      
     })
   }

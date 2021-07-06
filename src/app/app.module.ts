@@ -21,7 +21,7 @@ import { environment } from '../environments/environment';
     FormsModule,
     ReactiveFormsModule, 
     ServiceWorkerModule.register('sw.js', {
-  //scope: '.' ,
+    //scope: './' ,
   enabled: environment.production,
   // Register the ServiceWorker as soon as the app is stable
   // or after 30 seconds (whichever comes first).

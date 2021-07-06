@@ -1,5 +1,7 @@
 importScripts('./ngsw-worker.js');
 
+DYNAMIC_CACHE_VERSION = "V1";
+
 self.addEventListener('sync', (event) => {
    if(event.tag === 'post-data'){
       event.waitUntil(getDataAndSend());
@@ -12,7 +14,7 @@ function addData(userName) {
   let obj = {
     name: userName,
   };
-  fetch('http://localhost:3000/people', {
+  fetch('https://dev-taramsys-poc.herokuapp.com/customer', {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -56,3 +58,4 @@ function getDataAndSend() {
     // });
     
 }; 
+

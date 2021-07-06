@@ -1,24 +1,26 @@
 import { Injectable } from "@angular/core";
 import { Person } from '../models/person';
+import { Customer } from '../models/customer';
 import { Observable } from 'rxjs';
+import { map} from 'rxjs/operators'
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({providedIn:'root'})
 export class ApiService {
    
-    baseUrl: string = "http://localhost:3000/";
+    baseUrl: string = "https://dev-taramsys-poc.herokuapp.com/";
 
     constructor(private http: HttpClient){}
 
-    getPeople():Observable<Person[]>{
-       return this.http.get<Person[]>(this.baseUrl + 'people');
+    getPeople():Observable<any>{
+       return this.http.get<any>(this.baseUrl + 'customer');
     }
 
     addPerson(person:Person):Observable<any>{
         const headers = { 'content-type': 'application/json'}  
         const body=JSON.stringify(person);
        console.log(body)
-       return this.http.post(this.baseUrl + 'people', body,{'headers':headers})
+       return this.http.post(this.baseUrl + 'customer', body,{'headers':headers})
     }
    
 }

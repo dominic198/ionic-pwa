@@ -31,13 +31,14 @@
     {
       "name": "api-network-first",
       "version": 1,
-      "urls": ["http://localhost:3000/people"],
+      "urls": ["http://localhost:3000/**"],
       "cacheConfig": {
       "strategy": "freshness",
       "maxSize": 100,
       "maxAge": "10d",
       "timeout": "5s"
-      }
+      }     
     }
-  ]
+  ],
+  "navigationUrls": ["/**"]
 }
