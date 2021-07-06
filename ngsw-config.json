@@ -31,7 +31,7 @@
     {
       "name": "api-network-first",
       "version": 1,
-      "urls": ["http://localhost:3000/**"],
+      "urls": ["https://dev-taramsys-poc.herokuapp.com/**"],
       "cacheConfig": {
       "strategy": "freshness",
       "maxSize": 100,
