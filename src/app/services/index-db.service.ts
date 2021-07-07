@@ -26,8 +26,8 @@ export class IndexDBService {
      })
   }
 
-  addUser(name: string) {
-    return this.db.put('user-store',name, 'name');
+  addUser(obj:any) {
+    return this.db.put('user-store',JSON.stringify(obj), 'name');
   }
 
   deleteUser(key: string) {

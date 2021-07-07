@@ -19,8 +19,7 @@ export class ApiService {
     addPerson(person:Person):Observable<any>{
         const headers = { 'content-type': 'application/json'}  
         const body=JSON.stringify(person);
-       console.log(body)
-       return this.http.post(this.baseUrl + 'customer', body,{'headers':headers})
+       return this.http.post(this.baseUrl + 'addcustomer', body,{'headers':headers})
     }
    
 }

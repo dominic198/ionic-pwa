@@ -1,25 +1,21 @@
+
 importScripts('./ngsw-worker.js');
 
-DYNAMIC_CACHE_VERSION = "V1";
-
 self.addEventListener('sync', (event) => {
-   if(event.tag === 'post-data'){
-      event.waitUntil(getDataAndSend());
+   if(event.tag === 'post-data'){      
+       event.waitUntil(setTimeout(() =>{getDataAndSend()},3000));
    }
 });
 
-function addData(userName) {
-  console.log
+function addData(obj) {  
   //indexDb
-  let obj = {
-    name: userName,
-  };
-  fetch('https://dev-taramsys-poc.herokuapp.com/customer', {
+ 
+  fetch('https://dev-taramsys-poc.herokuapp.com/addcustomer', {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
     },    
-    body: JSON.stringify(obj),
+    body: obj,
   })
     .then(() => Promise.resolve())
     .catch(() => Promise.reject());

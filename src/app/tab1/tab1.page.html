@@ -13,6 +13,11 @@
     </ion-toolbar>
   </ion-header>
 
+  
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-item>
     <ion-input placeholder="Enter Person Name" [(ngModel)]="person.name"></ion-input>
     <ion-button color="primary" (click)="addPeople()">Add Customer</ion-button>
