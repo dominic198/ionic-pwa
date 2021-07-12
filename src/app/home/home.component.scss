@@ -1,0 +1,4 @@
+ion-scroll {
+    white-space: nowrap;
+     height: 600px; // better to calculate the device height and set it offsetting the bottom StatusBar or margin, etc.
+}

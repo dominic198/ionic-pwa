@@ -12,7 +12,8 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
-        ]
+        ],
+        "urls": []
       }
     },
     {
@@ -39,8 +40,5 @@
       "timeout": "5s"
       }     
     }
-  ],
-  "navigationUrls": [
-    "/**"
   ]
 }
