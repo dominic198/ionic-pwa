@@ -1,0 +1,27 @@
+
+
+  <ion-content>
+    <ion-card style="width: 50%; margin: auto;height: 50%; margin-top: 150px;">
+      <ion-card-header>   
+        <ion-card-title style="text-align: center;">LOGIN</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-item>
+          <ion-label>UserName</ion-label>
+          <ion-input [value]="credentials.username" (ionChange)="onUsernameChange($event)" placeholder="username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Password</ion-label>
+          <ion-input [value]="credentials.password" (ionChange)="onPasswordChange($event)" type="password" placeholder="password"></ion-input>
+        </ion-item>
+        <div>
+          <ion-button color="primary" (click)="onClick()">Login</ion-button>
+        </div>  
+        <ion-text>
+          Username: demo, Password: demo
+        </ion-text>     
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+

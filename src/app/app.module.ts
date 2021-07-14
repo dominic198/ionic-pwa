@@ -12,9 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-
+import { LoginComponent } from './login/login.component';
 @NgModule({
-  declarations: [AppComponent,HomeComponent,OfflineComponent],
+  declarations: [AppComponent,HomeComponent,OfflineComponent,LoginComponent],
   entryComponents: [],
   imports: [BrowserModule, 
     IonicModule.forRoot(), 
@@ -22,12 +22,11 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule, 
-    ServiceWorkerModule.register('sw.js', {
-    //scope: './' ,
-  enabled: environment.production,
-  // Register the ServiceWorker as soon as the app is stable
-  // or after 30 seconds (whichever comes first).
-  registrationStrategy: 'registerWhenStable:30000'
+    ServiceWorkerModule.register('sw.js', { 
+     enabled: environment.production,
+     // Register the ServiceWorker as soon as the app is stable
+     // or after 30 seconds (whichever comes first).
+     registrationStrategy: 'registerWhenStable:30000'
 })],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

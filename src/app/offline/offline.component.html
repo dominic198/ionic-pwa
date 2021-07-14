@@ -25,10 +25,12 @@
   </ion-item>
   <div style="height: 250px; overflow-y: scroll;">
   <ion-list>
-    <ion-item *ngFor="let person of people">
+    <ion-item *ngFor="let person of people; let i = index">
       <ion-label>
-        {{person.name}}
+       {{i+1}} {{person.name}}
       </ion-label>
+      <ion-button fill="solid" color="primary" (click)="edit(person)">Edit</ion-button>
+      <ion-button fill="solid" color="danger" (click)="delete(person)">Delete</ion-button>
     </ion-item>
   </ion-list>
 </div>

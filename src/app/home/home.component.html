@@ -5,6 +5,12 @@
                 <ion-back-button></ion-back-button>
             </ion-buttons>
             <ion-title>PWA Demo</ion-title>
+            <ion-buttons slot="primary">
+              <ion-button fill="solid" color="secondary" (click)="logout()">
+                Logout
+                <ion-icon slot="end" name="logout"></ion-icon>
+              </ion-button>
+            </ion-buttons>
         </ion-toolbar>
     </ion-header>
     <ion-grid>
@@ -13,7 +19,7 @@
                 <ion-item style="align-items: center;">
                     <img src="assets/images/bg.jpg" style="max-width: 80%; margin:auto;" />
                 </ion-item>
-                <app-offline></app-offline> 
+                <app-offline></app-offline>                
             </ion-col>
             <ion-col>
               <ion-text>
@@ -45,10 +51,7 @@
               </ion-text>
               <ion-text>
                 <h3>7. In unsupported browsers it defaults to regular website.</h3>
-              </ion-text>
-              <ion-text>
-                <h3>8. Provides push notification feature to the website.</h3>
-              </ion-text>
+              </ion-text>              
             </ion-col>
         </ion-row>
     </ion-grid>

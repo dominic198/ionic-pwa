@@ -19,7 +19,19 @@ export class ApiService {
     addPerson(person:Person):Observable<any>{
         const headers = { 'content-type': 'application/json'}  
         const body=JSON.stringify(person);
-       return this.http.post(this.baseUrl + 'addcustomer', body,{'headers':headers})
+       return this.http.post(this.baseUrl + 'addcustomer', body,{'headers':headers});
+    }
+
+    deletePerson(id:string):Observable<any>{
+        const headers = { 'content-type': 'application/json'}  
+        const body=JSON.stringify({"id":id});
+        return this.http.post(this.baseUrl+ 'customer/delete', body,{'headers':headers});
+    }
+
+    editPerson(person:any):Observable<any>{
+        const headers = { 'content-type': 'application/json'}  
+        const body=JSON.stringify({"id":person._id,"name":person.name});
+        return this.http.patch(this.baseUrl+ 'customer/update', body,{'headers':headers});
     }
    
 }

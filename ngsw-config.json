@@ -32,11 +32,11 @@
     {
       "name": "api-network-first",
       "version": 1,
-      "urls": ["https://dev-taramsys-poc.herokuapp.com/**"],
+      "urls": ["!https://dev-taramsys-poc.herokuapp.com/customer","https://dev-taramsys-poc.herokuapp.com/**"],
       "cacheConfig": {
       "strategy": "freshness",
       "maxSize": 100,
-      "maxAge": "10d",
+      "maxAge": "",
       "timeout": "5s"
       }     
     }
